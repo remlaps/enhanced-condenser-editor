@@ -6,6 +6,7 @@
 
 - **Side-by-Side Preview**: Real-time markdown preview positioned next to your editor.
 - **Deep Integration**: Works seamlessly with post creators and reply boxes.
+- **Theme Aware**: Supports both Light and Dark mode color schemes.
 - **Responsive Layout**: Automatically hides sidebars and expands the editor to utilize the full width of your screen.
 - **Multi-Domain Support**: Works across various Steemit development and community nodes.
 

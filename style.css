@@ -66,11 +66,20 @@ body.side-by-side-active .Preview {
     grid-column: 2 !important;
     grid-row: 1 / span 100 !important;
     position: sticky !important;
-    top: 10px !important;
+    top: 75px !important; /* Pushed down to avoid overlapping the Steemit header */
     max-height: 90vh !important;
     overflow-y: auto !important;
-    border-left: 2px solid #444 !important;
     padding-left: 20px !important;
+    padding-bottom: 100px !important; /* Ensures content can be scrolled past the bottom edge */
+
+    /* Default Light Mode Theme */
+    border-left: 2px solid #eee !important;
+    background: #fff !important;
+}
+
+/* Dark Mode Theme Override */
+body.side-by-side-active .theme-dark .Preview {
+    border-left: 2px solid #444 !important;
     background: #1a1a1a !important;
 }
 
@@ -78,7 +87,7 @@ body.side-by-side-active .Preview {
 #steem-side-toggle {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    left: 30px; /* Moved to the left to clear the preview pane area */
     z-index: 999999 !important;
     background: #0091ff;
     color: white;
