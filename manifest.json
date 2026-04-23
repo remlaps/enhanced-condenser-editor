@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Enhanced Condenser Editor (ECE)",
+  "version": "0.0.1",
+  "description": "A side-by-side editing enhancement for Condenser-based platforms.",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.steemit.com/*",
+        "*://*.steemitdev.com/*",
+        "*://*.moecki.online/*",
+        "*://*.steemnet.org/*"
+      ],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_end"
+    }
+  ]
+}

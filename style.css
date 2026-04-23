@@ -1,0 +1,91 @@
+/* 0. Prevent padding from increasing element width */
+body.side-by-side-active, body.side-by-side-active * {
+    box-sizing: border-box !important;
+}
+
+body.side-by-side-active {
+    overflow-x: hidden !important;
+}
+
+/* 1. Hide the Marketplace & Sidebar */
+body.side-by-side-active .column.shrink, 
+body.side-by-side-active aside, 
+body.side-by-side-active [class*="sidebar"],
+body.side-by-side-active [class*="sidebr"], /* Catch c-sidebr-ads and c-sidebr-market */
+body.side-by-side-active .App__navigation, /* Hide the left navigation menu */
+body.side-by-side-active .show-for-large:not(.post-main) {
+    display: none !important;
+}
+
+/* 2. Break out of the narrow container */
+body.side-by-side-active .App__content,
+body.side-by-side-active .Post,
+body.side-by-side-active .post-content,
+body.side-by-side-active .row,
+body.side-by-side-active .column,
+body.side-by-side-active .post-main,
+body.side-by-side-active .Comments,
+body.side-by-side-active .Comment,
+body.side-by-side-active .Comment__content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: relative !important; /* Context for absolute children */
+}
+
+/* 3. The Precision Grid Split */
+body.side-by-side-active form.vframe,
+body.side-by-side-active .ReplyEditor,
+body.side-by-side-active form:has(textarea[name="body"]) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    column-gap: 30px !important;
+    align-items: start !important;
+    
+    /* Relative positioning keeps it within the natural document flow and container bounds */
+    position: relative !important;
+    
+    width: 100% !important;
+    margin: 0 !important;
+    
+    /* Lower z-index so comments/modals appear in front */
+    z-index: 1 !important;
+}
+
+/* 4. Column Assignments */
+body.side-by-side-active form.vframe > div:not(.Preview),
+body.side-by-side-active .ReplyEditor > div:not(.Preview),
+body.side-by-side-active form:has(textarea[name="body"]) > div:not(.Preview) {
+    grid-column: 1 !important;
+    width: 100% !important;
+}
+
+body.side-by-side-active .Preview {
+    grid-column: 2 !important;
+    grid-row: 1 / span 100 !important;
+    position: sticky !important;
+    top: 10px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border-left: 2px solid #444 !important;
+    padding-left: 20px !important;
+    background: #1a1a1a !important;
+}
+
+/* Floating Toggle Button - Keep this on top */
+#steem-side-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999999 !important;
+    background: #0091ff;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#steem-side-toggle.inactive { background: #555; }
