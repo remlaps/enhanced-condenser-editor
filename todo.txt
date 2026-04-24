@@ -1,0 +1,6 @@
+April 24, 2026
+[x] - Sidebars need to be restored if I leave all editors.
+[x] - Need to see the "ECE Preview" button for multiple replies, simultaneously
+[ ] - Move "ECE Preview" button away from post/clear in post editor to protect against accidental activities (new posts only).
+[x] - Fix cosmetics of ECE Preview button with the reply editor.
+[ ] - Fix cosmetics of ECE preview button with the post editor (new posts and edited posts).

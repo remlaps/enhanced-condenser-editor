@@ -36,9 +36,7 @@ body.side-by-side-active .Comment__content {
 }
 
 /* 3. The Precision Grid Split */
-body.side-by-side-active form.vframe,
-body.side-by-side-active .ReplyEditor,
-body.side-by-side-active form:has(textarea[name="body"]) {
+.side-by-side-active-instance {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
     column-gap: 30px !important;
@@ -55,14 +53,13 @@ body.side-by-side-active form:has(textarea[name="body"]) {
 }
 
 /* 4. Column Assignments */
-body.side-by-side-active form.vframe > div:not(.Preview),
-body.side-by-side-active .ReplyEditor > div:not(.Preview),
-body.side-by-side-active form:has(textarea[name="body"]) > div:not(.Preview) {
+.side-by-side-active-instance > div:not(.Preview) {
     grid-column: 1 !important;
     width: 100% !important;
 }
 
-body.side-by-side-active .Preview {
+/* Preview Pane Styling - targeting the native Condenser Preview class */
+.side-by-side-active-instance .Preview {
     grid-column: 2 !important;
     grid-row: 1 / span 100 !important;
     position: sticky !important;
@@ -75,26 +72,28 @@ body.side-by-side-active .Preview {
     /* Default Light Mode Theme */
     border-left: 2px solid #eee !important;
     background: #fff !important;
+    display: block !important; /* Ensure it stays visible in side-by-side mode */
 }
 
 /* Dark Mode Theme Override */
-body.side-by-side-active .theme-dark .Preview {
+body.theme-dark .side-by-side-active-instance .Preview {
     border-left: 2px solid #444 !important;
     background: #1a1a1a !important;
 }
 
-/* Floating Toggle Button - Keep this on top */
-#steem-side-toggle {
-    position: fixed;
-    bottom: 30px;
-    left: 30px; /* Moved to the left to clear the preview pane area */
-    z-index: 999999 !important;
-    background: #0091ff;
-    color: white;
-    border: 2px solid white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
+/* Inline Toggle Button - Styled to match Condenser buttons */
+#steem-side-toggle[id^="steem-side-toggle-"] {
+    margin-left: 10px;
+    vertical-align: middle;
+    /* inherit the platform's button padding and height naturally */
+    height: auto; 
+    padding-top: 0;
+    padding-bottom: 0;
+    text-transform: none !important; /* Keep ECE Preview readable */
 }
-#steem-side-toggle.inactive { background: #555; }
+
+/* Force the 'inactive' state to look neutral regardless of the 'hollow' class */
+[id^="steem-side-toggle-"].button.hollow.inactive {
+    color: #8a8a8a !important;
+    border-color: #8a8a8a !important;
+}

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Enhanced Condenser Editor (ECE)",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A side-by-side editing enhancement for Condenser-based platforms.",
   "permissions": [],
   "content_scripts": [
