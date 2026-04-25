@@ -1,6 +1,18 @@
+IMPORTANT: Do NOT check these off until after they have been confirmed with testing.
+
 April 24, 2026
 [x] - Sidebars need to be restored if I leave all editors.
 [x] - Need to see the "ECE Preview" button for multiple replies, simultaneously
-[ ] - Move "ECE Preview" button away from post/clear in post editor to protect against accidental activities (new posts only).
+[x] - Move "ECE Preview" button to the Preview section for better visibility and context.
 [x] - Fix cosmetics of ECE Preview button with the reply editor.
-[ ] - Fix cosmetics of ECE preview button with the post editor (new posts and edited posts).
+[x] - Fix cosmetics of ECE preview button with the post editor (new posts and edited posts).
+[x] - When editing, display word count & reading time in a convenient location.
+
+April 25, 2026
+[X] - The ECE Preview option needs to be available in Editor mode, too. (No.  Editor gives no preview.  Added word count.)
+[x] - The ECE Preview option needs to go back where it was.  It was moved along with the wordcount/reading time marker.
+[x] - Wordcount & reading time need to move to the preview elements in new posts and replies, too.
+[x] - post edits and replies lost the "ECE Preview" button while adding word count in editor mode.
+[x] - The word count doesn't change when deleting all text with ctrl-a + ctrl-x in editor mode.
+[x] - After adding word-count to editor mode, the "ECE Preview" button is above the "post" button again in new posts/markdown mode.
+[ ] - Version locked.  Testing.

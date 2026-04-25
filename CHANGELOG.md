@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.5] - 2026-04-25
+### Added
+- Word count and reading time now appear in the reading pain for Markdown mode editing (new posts, edited posts, replies)
+- Word count and reading time now appear in the button area for Editor mode editing
+
+### Changed
+- Cosmetic changes.  Moved "ECE Preview" button away from "Post" button to avoid accidental premature posting.
+
 ## [0.0.4] - 2026-04-24
 ### Changed
 - Moved toggle button from a floating position to inline within the editor options/actions area.
