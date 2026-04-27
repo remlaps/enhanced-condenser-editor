@@ -82,7 +82,7 @@ body.theme-dark .side-by-side-active-instance .Preview {
 }
 
 /* Inline Toggle Button - Styled to match Condenser buttons */
-#steem-side-toggle[id^="steem-side-toggle-"] {
+[id^="steem-side-toggle-"] {
     margin-left: 10px;
     vertical-align: middle;
     /* inherit the platform's button padding and height naturally */
@@ -96,4 +96,14 @@ body.theme-dark .side-by-side-active-instance .Preview {
 [id^="steem-side-toggle-"].button.hollow.inactive {
     color: #8a8a8a !important;
     border-color: #8a8a8a !important;
+}
+
+/* Word Count and Reading Time Stats */
+.ece-stats {
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    margin-left: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+    white-space: nowrap;
 }
