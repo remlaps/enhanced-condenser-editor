@@ -5,6 +5,7 @@
 ## Features
 
 - **Side-by-Side Preview**: Real-time markdown preview positioned next to your editor.
+- **Split Preview**: Optionally split the side-by-side preview into two independent, scrollable halves that fill the same full-height area as the unsplit preview (like frozen panes in a spreadsheet), so distant parts of a long post can be compared at once. Drag the divider to re-balance the panes.
 - **Deep Integration**: Works seamlessly with post creators and reply boxes.
 - **Theme Aware**: Supports both Light and Dark mode color schemes.
 - **Responsive Layout**: Automatically hides sidebars and expands the editor to utilize the full width of your screen.

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.0] - 2026-10-31
+
+### Added
+- Horizontal split preview: while the side-by-side preview is active, a new "ECE Split" toggle divides the preview pane into two halves (similar to freezing panes in a spreadsheet). The two halves fill the same full-height area as the unsplit preview and scroll independently, so two distant parts of a post can be compared at once.
+- The split divider is draggable, so the operator can re-balance the two panes. The chosen ratio is remembered for that editor instance (it survives toggling the split off and back on).
+
+## [0.0.6] - 2026-04-XX
+
+### Changed
+- Included steemit.steemapps.com in the site list of manifest.json (and alphabetized the list)
+
 ## [0.0.5] - 2026-04-25
 ### Added
 - Word count and reading time now appear in the reading pain for Markdown mode editing (new posts, edited posts, replies)

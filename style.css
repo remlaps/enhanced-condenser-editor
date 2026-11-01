@@ -53,7 +53,7 @@ body.side-by-side-active .Comment__content {
 }
 
 /* 4. Column Assignments */
-.side-by-side-active-instance > div:not(.Preview) {
+.side-by-side-active-instance > div:not(.Preview):not(.ece-split-wrapper) {
     grid-column: 1 !important;
     width: 100% !important;
 }
@@ -82,7 +82,7 @@ body.theme-dark .side-by-side-active-instance .Preview {
 }
 
 /* Inline Toggle Button - Styled to match Condenser buttons */
-[id^="steem-side-toggle-"] {
+.ece-toggle-btn {
     margin-left: 10px;
     vertical-align: middle;
     /* inherit the platform's button padding and height naturally */
@@ -93,7 +93,7 @@ body.theme-dark .side-by-side-active-instance .Preview {
 }
 
 /* Force the 'inactive' state to look neutral regardless of the 'hollow' class */
-[id^="steem-side-toggle-"].button.hollow.inactive {
+.ece-toggle-btn.button.hollow.inactive {
     color: #8a8a8a !important;
     border-color: #8a8a8a !important;
 }
@@ -106,4 +106,109 @@ body.theme-dark .side-by-side-active-instance .Preview {
     margin-right: 5px;
     vertical-align: middle;
     white-space: nowrap;
+}
+
+/* ============================================================
+   Horizontal Split Preview
+   Splits the preview pane into two independently scrolling halves
+   (similar to freezing panes in a spreadsheet).
+   ============================================================ */
+
+/* Hide the native preview while the split wrapper is displayed.
+   The element stays in the DOM (so React keeps it updated) and its
+   rendered HTML is mirrored into both split panes. */
+body .split-preview-active .Preview {
+    display: none !important;
+}
+
+/* The wrapper lives in the same grid cell as the native preview */
+.side-by-side-active-instance > .ece-split-wrapper {
+    grid-column: 2 !important;
+    grid-row: 1 / span 100 !important;
+
+    position: sticky !important;
+    top: 75px !important; /* Match the native preview offset below the header */
+    /* Fill the same full-height area as the unsplit preview (its max-height) */
+    height: 90vh !important;
+    max-height: 90vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    padding-left: 20px !important;
+    overflow: hidden !important;
+
+    /* Default Light Mode Theme (matches the native preview) */
+    border-left: 2px solid #eee !important;
+    background: #fff !important;
+    z-index: 1 !important;
+}
+
+/* Dark Mode Theme Override */
+body.theme-dark .side-by-side-active-instance > .ece-split-wrapper {
+    border-left: 2px solid #444 !important;
+    background: #1a1a1a !important;
+}
+
+/* Each half scrolls independently through the preview */
+.ece-split-pane {
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+/* Top pane takes the draggable share; bottom pane fills the remainder */
+.ece-split-pane[data-pane="top"] {
+    flex: 0 0 var(--ece-split-top, 50%);
+}
+
+.ece-split-pane[data-pane="bottom"] {
+    flex: 1 1 0;
+}
+
+/* Condenser's .MarkdownViewer is styled `height: 100%; overflow: hidden` so it
+   fills and clips inside a fixed-height container. Inside our scrollable panes
+   (which have a definite height) that would clip the content to the pane height
+   and leave nothing to scroll. Force it to grow to its natural height instead,
+   so the pane itself does the scrolling. */
+.ece-split-pane .MarkdownViewer {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Draggable divider between the two halves (spreadsheet-style split bar) */
+.ece-split-divider {
+    flex: 0 0 auto;
+    height: 12px;
+    position: relative;
+    cursor: row-resize;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.ece-split-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 2px dashed #ccc;
+    transform: translateY(-1px);
+}
+
+body.theme-dark .ece-split-divider::before {
+    border-top-color: #555;
+}
+
+.ece-split-divider:hover::before {
+    border-top-color: #8a8a8a;
+}
+
+/* While dragging, keep the resize cursor and avoid selecting text */
+body.ece-split-dragging,
+body.ece-split-dragging * {
+    cursor: row-resize !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
 }
