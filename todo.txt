@@ -15,4 +15,10 @@ April 25, 2026
 [x] - post edits and replies lost the "ECE Preview" button while adding word count in editor mode.
 [x] - The word count doesn't change when deleting all text with ctrl-a + ctrl-x in editor mode.
 [x] - After adding word-count to editor mode, the "ECE Preview" button is above the "post" button again in new posts/markdown mode.
-[ ] - Version locked.  Testing.
+[x] - Version locked.  Testing.
+
+April 28, 2026
+[ ] - Standardize wordcount & reading time to look like the Steem Curation Extension (inside a post).
+
+October 31, 2026
+[ ] - Horizontal split preview toggle (freeze-pane style) for side-by-side mode.  Adds an "ECE Split" button that splits the preview into two independently scrollable halves that fill the full preview height, with a draggable divider to re-balance them.  Needs testing.
